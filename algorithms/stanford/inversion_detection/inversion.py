@@ -11,7 +11,7 @@ def loadInput(file):
     return array
 
 
-input = loadInput("inversiondata.txt")
+input = loadInput('inversiondata.txt')
 print(len(input))
 
 def sortAndInversions(array):
@@ -38,7 +38,7 @@ def merge(before, after, acc):
     Returns an array of the sorted combined array, and updated number of split inversions.
     Split inversions is defined as number of pairs of entries (i, j)
     where i is an element of before and j is an element of after and i > j.
-    Modified helper of merge sort.
+    Modified helper of marge sort.
     '''
     result = []
     i, j = 0, 0
@@ -49,18 +49,10 @@ def merge(before, after, acc):
         if before[i] <= after[j]:
             result.append(before[i])
             i += 1
-
-            #if i increases then add j to acc because new array entry is larger than past ones
-            if i < length1:
-                acc = acc + j
         else:
             result.append(after[j])
-            acc += 1
+            acc = acc + (length1 - i)
             j += 1
-
-    #add to acc if I finish array "after" before finishing array "before"
-    if i < length1:
-        acc = acc + (length2 * (length1 - i - 1))
 
     #append rest of remaining array if one is shorter
     while i < length1:
