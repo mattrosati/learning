@@ -87,8 +87,8 @@ def partition(pivot_array, left, right):
     pivot_array[i - 1], pivot_array[left] = pivot_array[left], pivot_array[i - 1]
     return
 
-input = loadInput('inversiondata.txt')
-initial_right = len(input)) - 1
+input = loadInput('quicksortdata.txt')
+initial_right = len(input) - 1
 
 #run all three methods at once
 while METHOD != 3:
