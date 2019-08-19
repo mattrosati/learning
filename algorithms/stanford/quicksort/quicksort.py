@@ -23,7 +23,6 @@ def quicksort(unsorted, left, right):
     output: none.
     '''
     length = right - left + 1 # make sure this is right
-
     # if array is one element or less, do nothing
     if length <= 1:
         return
@@ -42,6 +41,7 @@ def quicksort(unsorted, left, right):
         # recurse on split arrays
         quicksort(unsorted, left, pivot_value - 1)
         quicksort(unsorted, pivot_value + 1, right)
+        return
 
 def choosePivot(array, left, right):
     '''
@@ -83,16 +83,18 @@ def partition(pivot_array, left, right):
     for j in range(i, right + 1):
         if pivot_array[j] < pivot:
             pivot_array[i], pivot_array[j] = pivot_array[j], pivot_array[i]
-            i =+ 1
+            i += 1
     pivot_array[i - 1], pivot_array[left] = pivot_array[left], pivot_array[i - 1]
     return
 
-input = loadInput('quicksortdata.txt')
-initial_right = len(input) - 1
-
 #run all three methods at once
 while METHOD != 3:
-    quicksort(input, 0, initial_right)
-    print("Number of comparisons is: ", comp)
+    input = loadInput("quicksortdata.txt")
+    initial_right = len(input) - 1
+    unsorted = input
+    quicksort(unsorted, 0, initial_right)
+    print("Number of comparisons for method", METHOD, "is:", comp)
+    print(unsorted[0:10])
+    print(unsorted[-10:])
     comp = 0
-    METHOD =+ 1
+    METHOD += 1
