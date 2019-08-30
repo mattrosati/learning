@@ -1,4 +1,15 @@
-# implementation of quicksort with 3 different partition methods
+# implementation of quicksort with 3 different pivot choice methods
+import sys
+
+# fetching filepath
+try:
+    FILEPATH = sys.argv[1]
+    if len(sys.argv) != 2:
+        raise
+except:
+    print("Please provide only a path to file with array as the argument.")
+    print("Example: quicksort.py <filepath>")
+    sys.exit()
 
 def loadInput(file):
     '''
@@ -8,7 +19,7 @@ def loadInput(file):
         array = [int(i) for i in f]
     return array
 
-# initialize comparison counter, define a method counter for the three pset tasks.
+# initialize comparison counter, define a method counter for the three choice methods.
 METHOD = 0
 comp = 0
 
@@ -22,7 +33,7 @@ def quicksort(unsorted, left, right):
 
     output: none.
     '''
-    length = right - left + 1 # make sure this is right
+    length = right - left + 1
     # if array is one element or less, do nothing
     if length <= 1:
         return
@@ -89,12 +100,10 @@ def partition(pivot_array, left, right):
 
 #run all three methods at once
 while METHOD != 3:
-    input = loadInput("quicksortdata.txt")
+    input = loadInput(FILEPATH)
     initial_right = len(input) - 1
     unsorted = input
     quicksort(unsorted, 0, initial_right)
     print("Number of comparisons for method", METHOD, "is:", comp)
-    print(unsorted[0:10])
-    print(unsorted[-10:])
     comp = 0
     METHOD += 1
