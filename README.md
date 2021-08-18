@@ -15,4 +15,4 @@ Here is a list of the courses and their status, and which directory the projects
 - Directory `object-oriented-design`: [Object-Oriented Design Concepts](http://web.cs.wpi.edu/~cs2102/b16/index.html), __in progress__.
 
 
-I have also completed the C part of [CS50](cs50.io) and am taking CPSC 223: Data Structures and Algorithms at Yale University.
+I have also completed the C part of [CS50](cs50.io) and CPSC 223: Data Structures and Algorithms at Yale University.
